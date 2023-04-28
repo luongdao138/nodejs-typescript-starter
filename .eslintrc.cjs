@@ -11,7 +11,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
     'plugin:promise/recommended',
-    'plugin:n/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -39,7 +38,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.test.ts', '**/*.spec.ts', '**/*.test.js', '**/*.spec.js'],
-      rule: {
+      rules: {
         '@typescript-eslint/no-unsafe-call': 'off',
       },
     },
