@@ -3,15 +3,16 @@ module.exports = {
   env: {
     node: true,
   },
+  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort', 'promise'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
+    'plugin:promise/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
   parserOptions: {
     tsConfigRootDir: __dirname,
     project: './tsconfig.json',
