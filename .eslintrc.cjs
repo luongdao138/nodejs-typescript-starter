@@ -2,6 +2,7 @@
 module.exports = {
   env: {
     node: true,
+    jest: true,
   },
   plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort', 'promise'],
   extends: [
@@ -10,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
     'plugin:promise/recommended',
+    'plugin:n/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -17,6 +19,8 @@ module.exports = {
     tsConfigRootDir: __dirname,
     project: './tsconfig.json',
     sourceType: 'module',
+    // Only ESLint 6.2.0 and later support ES2020.
+    ecmaVersion: 2020,
   },
   root: true,
   rules: {
@@ -27,4 +31,17 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
   },
   ignorePatterns: ['.eslintrc.cjs'],
+  settings: {
+    node: {
+      version: '>=16.0.0',
+    },
+  },
+  overrides: [
+    {
+      files: ['**/*.test.ts', '**/*.spec.ts', '**/*.test.js', '**/*.spec.js'],
+      rule: {
+        '@typescript-eslint/no-unsafe-call': 'off',
+      },
+    },
+  ],
 }
