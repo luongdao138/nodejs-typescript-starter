@@ -12,3 +12,7 @@
 *.env.*
 *.js
 *.cjs
+
+
+## submodules
+nodejs-package-starter

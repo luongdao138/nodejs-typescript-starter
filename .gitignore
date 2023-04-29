@@ -39,3 +39,6 @@ coverage
 # environment
 .env
 docker_data
+
+## submodules
+nodejs-package-starter

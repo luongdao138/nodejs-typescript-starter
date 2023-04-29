@@ -1,0 +1,3 @@
+[submodule "nodejs-package-starter"]
+	path = nodejs-package-starter
+	url = https://github.com/luongdao138/nodejs-package-starter.git

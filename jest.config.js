@@ -26,4 +26,5 @@ module.exports = {
       statements: 0,
     },
   },
+  testPathIgnorePatterns: ['nodejs-package-starter'],
 }
