@@ -2,7 +2,7 @@
 import dotenv from 'dotenv-safe'
 import express from 'express'
 
-import { appLoader } from '../nodejs-package-starter/dist'
+import { appLoader, ConfigModule, Logger } from '../nodejs-package-starter/dist'
 import { GracefulShutdownServer } from '../nodejs-package-starter/dist/utils'
 
 dotenv.config()
@@ -12,13 +12,15 @@ dotenv.config()
     const directory = process.cwd()
 
     try {
-      await appLoader({ directory, expressApp: app })
+      const { container } = await appLoader({ directory, expressApp: app })
+      const configModule = container.resolve<ConfigModule>('configModule')
+      const logger = container.resolve<Logger>('logger')
 
-      const port = process.env.PORT ?? 9000
+      const port = process.env.PORT ?? configModule.projectConfig.port ?? 9000
 
       const server = GracefulShutdownServer.create(
         app.listen(port, () => {
-          console.log(`Server listening on port ${port}`)
+          logger.info(`Server listening on port ${port}`)
         }),
       )
 
@@ -27,11 +29,11 @@ dotenv.config()
         server
           .shutdown()
           .then(() => {
-            console.info('Gracefully stopping the server.')
+            logger.info('Gracefully stopping the server.')
             return process.exit(0)
           })
           .catch((e) => {
-            console.error('Error received when shutting down the server.', e)
+            logger.error('Error received when shutting down the server.', e)
             return process.exit(1)
           })
       }

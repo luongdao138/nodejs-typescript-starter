@@ -1,5 +1,5 @@
 {
-  "watch": ["src"],
+  "watch": ["src", "jvm-config.js"],
   "ext": "ts,js,tsx,jsx",
   "ignore": ["node_modules", "dist", "coverage", "**/*.test.ts", "**/*.test.js", "**/*.spec.ts", "**/*.spec.js"],
   "exec": "npm run start:dev",
