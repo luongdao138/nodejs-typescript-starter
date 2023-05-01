@@ -21,10 +21,12 @@ try {
   dotenv.config({ path: process.cwd() + "/" + ENV_FILE_NAME });
 } catch (e) {}
 
+const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
 /** @type {import('./nodejs-package-starter/dist').ConfigModule['projectConfig']} */
 const projectConfig = {
      port: 9000,
+     redis_url: REDIS_URL
 }
 
 /** @type {import('./nodejs-package-starter/dist').ConfigModule} */
