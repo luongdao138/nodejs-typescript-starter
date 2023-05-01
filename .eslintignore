@@ -16,3 +16,11 @@
 
 ## submodules
 nodejs-package-starter
+
+**/scripts/*
+**/migrations/*
+.eslintrc.cjs
+
+
+# Project
+jvm-config.js
