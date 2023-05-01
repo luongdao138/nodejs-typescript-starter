@@ -2,7 +2,7 @@
 import dotenv from 'dotenv-safe'
 import express from 'express'
 
-import { appLoader, ConfigModule, Logger } from '../nodejs-package-starter/dist'
+import appLoader, { ConfigModule, Logger } from '../nodejs-package-starter/dist'
 import { GracefulShutdownServer } from '../nodejs-package-starter/dist/utils'
 
 dotenv.config()
