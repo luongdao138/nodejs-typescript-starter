@@ -23,10 +23,19 @@ try {
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+// db
+const DATABASE_TYPE = process.env.DATABASE_TYPE || "postgres";
+const DATABASE_LOGGING = process.env.DATABASE_LOGGING || false;
+const DATABASE_URL =
+  process.env.DATABASE_URL || "postgres://postgres:postgres@localhost/jvm-development";
+
 /** @type {import('./nodejs-package-starter/dist').ConfigModule['projectConfig']} */
 const projectConfig = {
      port: 9000,
-     redis_url: REDIS_URL
+     redis_url: REDIS_URL,
+     database_type: DATABASE_TYPE,
+     database_url: DATABASE_URL,
+     database_logging: DATABASE_LOGGING,
 }
 
 /** @type {import('./nodejs-package-starter/dist').ConfigModule} */

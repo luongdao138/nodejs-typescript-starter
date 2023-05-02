@@ -19,3 +19,7 @@ nodejs-package-starter
 
 # Project
 jvm-config.js
+
+**/scripts/*
+**/migrations/*
+.eslintrc.cjs
