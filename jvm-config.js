@@ -29,6 +29,8 @@ const DATABASE_LOGGING = process.env.DATABASE_LOGGING || false;
 const DATABASE_URL =
   process.env.DATABASE_URL || "postgres://postgres:postgres@localhost/jvm-development";
 
+const HTTP_LOGGING = process.env.HTTP_LOGGING === 'true'
+
 /** @type {import('./nodejs-package-starter/dist').ConfigModule['projectConfig']} */
 const projectConfig = {
      port: 9000,
@@ -36,6 +38,7 @@ const projectConfig = {
      database_type: DATABASE_TYPE,
      database_url: DATABASE_URL,
      database_logging: DATABASE_LOGGING,
+     http_logging: HTTP_LOGGING
 }
 
 /** @type {import('./nodejs-package-starter/dist').ConfigModule} */

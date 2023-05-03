@@ -5,7 +5,7 @@ import express from 'express'
 import appLoader, { ConfigModule, Logger } from '../nodejs-package-starter/dist'
 import { GracefulShutdownServer } from '../nodejs-package-starter/dist/utils'
 
-dotenv.config()
+dotenv.config({ allowEmptyValues: true })
 ;(async () => {
   const start = async () => {
     const app = express()
